@@ -16,6 +16,10 @@ app.get('/ping', (request , response) => {
     // console.log(request.body); // Body params
 }) // 2 arguments , 1 -> route as a string , 2 -> callback
 
+app.get('/categories/:category/:id', (request , response) => {
+    console.log(request.params)
+})
+
 app.listen(port, () => {
     console.log(`App is listening to the  port ${port}`)
 })
