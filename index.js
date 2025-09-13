@@ -1,7 +1,9 @@
 const express = require('express')
 const bodyparser = require('body-parser')
+const { PORT } = require('./config/serverConfig')
+
 const app = express()
-const port = 3000
+
 
 app.use(bodyparser.json())
 app.use(bodyparser.text())
@@ -17,11 +19,12 @@ app.get('/ping', (request , response) => {
 }) // 2 arguments , 1 -> route as a string , 2 -> callback
 
 app.get('/categories/:category/:id', (request , response) => {
-    console.log(request.params)
+    console.log(request.headers);
+    console.log(request.params);
 })
 
-app.listen(port, () => {
-    console.log(`App is listening to the  port ${port}`)
+app.listen(PORT || 3001, () => {
+    console.log(`App is listening to the  port ${PORT || 3001}`)
 })
 
 /**
